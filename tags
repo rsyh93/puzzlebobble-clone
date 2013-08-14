@@ -1,0 +1,167 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+Arrow	gamestategame.h	/^struct Arrow$/;"	s
+Arrow::adjustedPosition	gamestategame.cpp	/^void Arrow::adjustedPosition(int *dst_x, int *dst_y)$/;"	f	class:Arrow	signature:(int *dst_x, int *dst_y)
+Arrow::adjustedPosition	gamestategame.h	/^    void adjustedPosition(int *dst_x, int *dst_y);$/;"	p	struct:Arrow	access:public	signature:(int *dst_x, int *dst_y)
+Arrow::angle	gamestategame.h	/^    double angle;$/;"	m	struct:Arrow	access:public
+Arrow::center_x	gamestategame.h	/^    int center_x, center_y;$/;"	m	struct:Arrow	access:public
+Arrow::center_y	gamestategame.h	/^    int center_x, center_y;$/;"	m	struct:Arrow	access:public
+Arrow::image	gamestategame.h	/^    SDL_Surface *image;$/;"	m	struct:Arrow	access:public
+BALL_H	ball.h	2;"	d
+Ball	ball.cpp	/^Ball::Ball(double x, double y, double angle, Uint32 color) :$/;"	f	class:Ball	signature:(double x, double y, double angle, Uint32 color)
+Ball	ball.h	/^    Ball(double x, double y, double angle, Uint32 color);$/;"	p	class:Ball	access:public	signature:(double x, double y, double angle, Uint32 color)
+Ball	ball.h	/^class Ball$/;"	c
+Ball::Ball	ball.cpp	/^Ball::Ball(double x, double y, double angle, Uint32 color) :$/;"	f	class:Ball	signature:(double x, double y, double angle, Uint32 color)
+Ball::Ball	ball.h	/^    Ball(double x, double y, double angle, Uint32 color);$/;"	p	class:Ball	access:public	signature:(double x, double y, double angle, Uint32 color)
+Ball::angle	ball.h	/^    double angle;$/;"	m	class:Ball	access:public
+Ball::color	ball.h	/^    Uint32 color;$/;"	m	class:Ball	access:public
+Ball::count	ball.h	/^    static int count = 0;$/;"	m	class:Ball	access:public
+Ball::kill	ball.h	/^    bool kill;$/;"	m	class:Ball	access:public
+Ball::position	ball.h	/^    SDL_Rect position;$/;"	m	class:Ball	access:public
+Ball::update	ball.cpp	/^void Ball::update()$/;"	f	class:Ball	signature:()
+Ball::update	ball.h	/^    void update();$/;"	p	class:Ball	access:public	signature:()
+Ball::x	ball.h	/^    double x, y;$/;"	m	class:Ball	access:public
+Ball::y	ball.h	/^    double x, y;$/;"	m	class:Ball	access:public
+Ball::~Ball	ball.cpp	/^Ball::~Ball()$/;"	f	class:Ball	signature:()
+Ball::~Ball	ball.h	/^    virtual ~Ball();$/;"	p	class:Ball	access:public	signature:()
+GAMESTATEGAME_H	gamestategame.h	2;"	d
+GAMESTATEMENU_H	gamestatemenu.h	2;"	d
+GAMESTATE_H	gamestate.h	2;"	d
+Gamestate	gamestate.cpp	/^Gamestate::Gamestate()$/;"	f	class:Gamestate	signature:()
+Gamestate	gamestate.h	/^    Gamestate();$/;"	p	class:Gamestate	access:public	signature:()
+Gamestate	gamestate.h	/^class Gamestate {$/;"	c
+Gamestate::Gamestate	gamestate.cpp	/^Gamestate::Gamestate()$/;"	f	class:Gamestate	signature:()
+Gamestate::Gamestate	gamestate.h	/^    Gamestate();$/;"	p	class:Gamestate	access:public	signature:()
+Gamestate::close	gamestate.cpp	/^void Gamestate::close()$/;"	f	class:Gamestate	signature:()
+Gamestate::close	gamestate.h	/^    virtual void close();$/;"	p	class:Gamestate	access:public	signature:()
+Gamestate::draw	gamestate.cpp	/^void Gamestate::draw()$/;"	f	class:Gamestate	signature:()
+Gamestate::draw	gamestate.h	/^    virtual void draw();$/;"	p	class:Gamestate	access:public	signature:()
+Gamestate::events	gamestate.cpp	/^void Gamestate::events()$/;"	f	class:Gamestate	signature:()
+Gamestate::events	gamestate.h	/^    virtual void events();$/;"	p	class:Gamestate	access:public	signature:()
+Gamestate::init	gamestate.cpp	/^void Gamestate::init()$/;"	f	class:Gamestate	signature:()
+Gamestate::init	gamestate.h	/^    virtual void init();$/;"	p	class:Gamestate	access:public	signature:()
+Gamestate::~Gamestate	gamestate.cpp	/^Gamestate::~Gamestate()$/;"	f	class:Gamestate	signature:()
+Gamestate::~Gamestate	gamestate.h	/^    virtual ~Gamestate();$/;"	p	class:Gamestate	access:public	signature:()
+GamestateGame	gamestategame.cpp	/^GamestateGame::GamestateGame() :$/;"	f	class:GamestateGame	signature:()
+GamestateGame	gamestategame.h	/^    GamestateGame();$/;"	p	class:GamestateGame	access:public	signature:()
+GamestateGame	gamestategame.h	/^class GamestateGame : public Gamestate$/;"	c	inherits:Gamestate
+GamestateGame::GamestateGame	gamestategame.cpp	/^GamestateGame::GamestateGame() :$/;"	f	class:GamestateGame	signature:()
+GamestateGame::GamestateGame	gamestategame.h	/^    GamestateGame();$/;"	p	class:GamestateGame	access:public	signature:()
+GamestateGame::active_ball	gamestategame.h	/^    Ball *active_ball;$/;"	m	class:GamestateGame	access:private
+GamestateGame::arrow	gamestategame.h	/^    Arrow arrow;$/;"	m	class:GamestateGame	access:private
+GamestateGame::arrow_angles	gamestategame.h	/^    std::vector<SDL_Surface *> arrow_angles;$/;"	m	class:GamestateGame	access:private
+GamestateGame::close	gamestategame.cpp	/^void GamestateGame::close()$/;"	f	class:GamestateGame	signature:()
+GamestateGame::close	gamestategame.h	/^    void close();$/;"	p	class:GamestateGame	access:public	signature:()
+GamestateGame::cur_keystate	gamestategame.h	/^    Uint8 *cur_keystate;$/;"	m	class:GamestateGame	access:private
+GamestateGame::draw	gamestategame.cpp	/^void GamestateGame::draw()$/;"	f	class:GamestateGame	signature:()
+GamestateGame::draw	gamestategame.h	/^    void draw();$/;"	p	class:GamestateGame	access:public	signature:()
+GamestateGame::events	gamestategame.cpp	/^void GamestateGame::events()$/;"	f	class:GamestateGame	signature:()
+GamestateGame::events	gamestategame.h	/^    void events();$/;"	p	class:GamestateGame	access:public	signature:()
+GamestateGame::init	gamestategame.cpp	/^void GamestateGame::init()$/;"	f	class:GamestateGame	signature:()
+GamestateGame::init	gamestategame.h	/^    void init();$/;"	p	class:GamestateGame	access:public	signature:()
+GamestateGame::keyPress	gamestategame.cpp	/^bool GamestateGame::keyPress(SDLKey key)$/;"	f	class:GamestateGame	signature:(SDLKey key)
+GamestateGame::keyPress	gamestategame.h	/^    bool keyPress(SDLKey key);$/;"	p	class:GamestateGame	access:private	signature:(SDLKey key)
+GamestateGame::old_keystate	gamestategame.h	/^    Uint8 *old_keystate;$/;"	m	class:GamestateGame	access:private
+GamestateGame::playarea	gamestategame.h	/^    SDL_Rect playarea;$/;"	m	class:GamestateGame	access:private
+GamestateGame::top_row	gamestategame.h	/^    Ball *top_row[top_row_size];$/;"	m	class:GamestateGame	access:private
+GamestateGame::updateArrow	gamestategame.cpp	/^void GamestateGame::updateArrow()$/;"	f	class:GamestateGame	signature:()
+GamestateGame::updateArrow	gamestategame.h	/^    void updateArrow();$/;"	p	class:GamestateGame	access:private	signature:()
+GamestateGame::updateBalls	gamestategame.cpp	/^void GamestateGame::updateBalls()$/;"	f	class:GamestateGame	signature:()
+GamestateGame::updateBalls	gamestategame.h	/^    void updateBalls();$/;"	p	class:GamestateGame	access:private	signature:()
+GamestateGame::~GamestateGame	gamestategame.cpp	/^GamestateGame::~GamestateGame()$/;"	f	class:GamestateGame	signature:()
+GamestateGame::~GamestateGame	gamestategame.h	/^    virtual ~GamestateGame();$/;"	p	class:GamestateGame	access:public	signature:()
+GamestateMenu	gamestatemenu.cpp	/^GamestateMenu::GamestateMenu()$/;"	f	class:GamestateMenu	signature:()
+GamestateMenu	gamestatemenu.h	/^    GamestateMenu ();$/;"	p	class:GamestateMenu	access:public	signature:()
+GamestateMenu	gamestatemenu.h	/^class GamestateMenu : public Gamestate$/;"	c	inherits:Gamestate
+GamestateMenu::GamestateMenu	gamestatemenu.cpp	/^GamestateMenu::GamestateMenu()$/;"	f	class:GamestateMenu	signature:()
+GamestateMenu::GamestateMenu	gamestatemenu.h	/^    GamestateMenu ();$/;"	p	class:GamestateMenu	access:public	signature:()
+GamestateMenu::close	gamestatemenu.cpp	/^void GamestateMenu::close()$/;"	f	class:GamestateMenu	signature:()
+GamestateMenu::close	gamestatemenu.h	/^    void close();$/;"	p	class:GamestateMenu	access:public	signature:()
+GamestateMenu::draw	gamestatemenu.cpp	/^void GamestateMenu::draw()$/;"	f	class:GamestateMenu	signature:()
+GamestateMenu::draw	gamestatemenu.h	/^    void draw();$/;"	p	class:GamestateMenu	access:public	signature:()
+GamestateMenu::events	gamestatemenu.cpp	/^void GamestateMenu::events()$/;"	f	class:GamestateMenu	signature:()
+GamestateMenu::events	gamestatemenu.h	/^    void events();$/;"	p	class:GamestateMenu	access:public	signature:()
+GamestateMenu::init	gamestatemenu.cpp	/^void GamestateMenu::init()$/;"	f	class:GamestateMenu	signature:()
+GamestateMenu::init	gamestatemenu.h	/^    void init();$/;"	p	class:GamestateMenu	access:public	signature:()
+GamestateMenu::~GamestateMenu	gamestatemenu.cpp	/^GamestateMenu::~GamestateMenu ()$/;"	f	class:GamestateMenu	signature:()
+GamestateMenu::~GamestateMenu	gamestatemenu.h	/^    virtual ~GamestateMenu ();$/;"	p	class:GamestateMenu	access:public	signature:()
+PI	ball.h	7;"	d
+SCREEN_BPP	main.cpp	/^const int SCREEN_BPP = 32;$/;"	v
+SCREEN_HEIGHT	main.cpp	/^const int SCREEN_HEIGHT = 480;$/;"	v
+SCREEN_WIDTH	main.cpp	/^const int SCREEN_WIDTH = 480;$/;"	v
+WIDTH	ball.h	8;"	d
+active_ball	gamestategame.h	/^    Ball *active_ball;$/;"	m	class:GamestateGame	access:private
+adjustedPosition	gamestategame.cpp	/^void Arrow::adjustedPosition(int *dst_x, int *dst_y)$/;"	f	class:Arrow	signature:(int *dst_x, int *dst_y)
+adjustedPosition	gamestategame.h	/^    void adjustedPosition(int *dst_x, int *dst_y);$/;"	p	struct:Arrow	access:public	signature:(int *dst_x, int *dst_y)
+angle	ball.h	/^    double angle;$/;"	m	class:Ball	access:public
+angle	gamestategame.h	/^    double angle;$/;"	m	struct:Arrow	access:public
+arrow	gamestategame.h	/^    Arrow arrow;$/;"	m	class:GamestateGame	access:private
+arrow_angles	gamestategame.h	/^    std::vector<SDL_Surface *> arrow_angles;$/;"	m	class:GamestateGame	access:private
+arrow_img	main.cpp	/^SDL_Surface *arrow_img;$/;"	v
+ball_img	main.cpp	/^SDL_Surface *ball_img;$/;"	v
+center_x	gamestategame.h	/^    int center_x, center_y;$/;"	m	struct:Arrow	access:public
+center_y	gamestategame.h	/^    int center_x, center_y;$/;"	m	struct:Arrow	access:public
+close	gamestate.cpp	/^void Gamestate::close()$/;"	f	class:Gamestate	signature:()
+close	gamestate.h	/^    virtual void close();$/;"	p	class:Gamestate	access:public	signature:()
+close	gamestategame.cpp	/^void GamestateGame::close()$/;"	f	class:GamestateGame	signature:()
+close	gamestategame.h	/^    void close();$/;"	p	class:GamestateGame	access:public	signature:()
+close	gamestatemenu.cpp	/^void GamestateMenu::close()$/;"	f	class:GamestateMenu	signature:()
+close	gamestatemenu.h	/^    void close();$/;"	p	class:GamestateMenu	access:public	signature:()
+color	ball.h	/^    Uint32 color;$/;"	m	class:Ball	access:public
+count	ball.h	/^    static int count = 0;$/;"	m	class:Ball	access:public
+cur_keystate	gamestategame.h	/^    Uint8 *cur_keystate;$/;"	m	class:GamestateGame	access:private
+draw	gamestate.cpp	/^void Gamestate::draw()$/;"	f	class:Gamestate	signature:()
+draw	gamestate.h	/^    virtual void draw();$/;"	p	class:Gamestate	access:public	signature:()
+draw	gamestategame.cpp	/^void GamestateGame::draw()$/;"	f	class:GamestateGame	signature:()
+draw	gamestategame.h	/^    void draw();$/;"	p	class:GamestateGame	access:public	signature:()
+draw	gamestatemenu.cpp	/^void GamestateMenu::draw()$/;"	f	class:GamestateMenu	signature:()
+draw	gamestatemenu.h	/^    void draw();$/;"	p	class:GamestateMenu	access:public	signature:()
+events	gamestate.cpp	/^void Gamestate::events()$/;"	f	class:Gamestate	signature:()
+events	gamestate.h	/^    virtual void events();$/;"	p	class:Gamestate	access:public	signature:()
+events	gamestategame.cpp	/^void GamestateGame::events()$/;"	f	class:GamestateGame	signature:()
+events	gamestategame.h	/^    void events();$/;"	p	class:GamestateGame	access:public	signature:()
+events	gamestatemenu.cpp	/^void GamestateMenu::events()$/;"	f	class:GamestateMenu	signature:()
+events	gamestatemenu.h	/^    void events();$/;"	p	class:GamestateMenu	access:public	signature:()
+image	gamestategame.h	/^    SDL_Surface *image;$/;"	m	struct:Arrow	access:public
+init	gamestate.cpp	/^void Gamestate::init()$/;"	f	class:Gamestate	signature:()
+init	gamestate.h	/^    virtual void init();$/;"	p	class:Gamestate	access:public	signature:()
+init	gamestategame.cpp	/^void GamestateGame::init()$/;"	f	class:GamestateGame	signature:()
+init	gamestategame.h	/^    void init();$/;"	p	class:GamestateGame	access:public	signature:()
+init	gamestatemenu.cpp	/^void GamestateMenu::init()$/;"	f	class:GamestateMenu	signature:()
+init	gamestatemenu.h	/^    void init();$/;"	p	class:GamestateMenu	access:public	signature:()
+init	main.cpp	/^bool init()$/;"	f	signature:()
+keyPress	gamestategame.cpp	/^bool GamestateGame::keyPress(SDLKey key)$/;"	f	class:GamestateGame	signature:(SDLKey key)
+keyPress	gamestategame.h	/^    bool keyPress(SDLKey key);$/;"	p	class:GamestateGame	access:private	signature:(SDLKey key)
+kill	ball.h	/^    bool kill;$/;"	m	class:Ball	access:public
+load_image	main.cpp	/^SDL_Surface *load_image(const char* filename)$/;"	f	signature:(const char* filename)
+load_resources	main.cpp	/^bool load_resources()$/;"	f	signature:()
+main	main.cpp	/^int main(int argc, char** argv)$/;"	f	signature:(int argc, char** argv)
+old_keystate	gamestategame.h	/^    Uint8 *old_keystate;$/;"	m	class:GamestateGame	access:private
+playarea	gamestategame.h	/^    SDL_Rect playarea;$/;"	m	class:GamestateGame	access:private
+position	ball.h	/^    SDL_Rect position;$/;"	m	class:Ball	access:public
+quit	main.cpp	/^void quit()$/;"	f	signature:()
+running	main.cpp	/^bool running;$/;"	v
+screen	main.cpp	/^SDL_Surface *screen;$/;"	v
+state	main.cpp	/^Gamestate *state;$/;"	v
+top_row	gamestategame.h	/^    Ball *top_row[top_row_size];$/;"	m	class:GamestateGame	access:private
+top_row_size	gamestategame.h	/^static const int top_row_size = 10;$/;"	v
+update	ball.cpp	/^void Ball::update()$/;"	f	class:Ball	signature:()
+update	ball.h	/^    void update();$/;"	p	class:Ball	access:public	signature:()
+updateArrow	gamestategame.cpp	/^void GamestateGame::updateArrow()$/;"	f	class:GamestateGame	signature:()
+updateArrow	gamestategame.h	/^    void updateArrow();$/;"	p	class:GamestateGame	access:private	signature:()
+updateBalls	gamestategame.cpp	/^void GamestateGame::updateBalls()$/;"	f	class:GamestateGame	signature:()
+updateBalls	gamestategame.h	/^    void updateBalls();$/;"	p	class:GamestateGame	access:private	signature:()
+x	ball.h	/^    double x, y;$/;"	m	class:Ball	access:public
+y	ball.h	/^    double x, y;$/;"	m	class:Ball	access:public
+~Ball	ball.cpp	/^Ball::~Ball()$/;"	f	class:Ball	signature:()
+~Ball	ball.h	/^    virtual ~Ball();$/;"	p	class:Ball	access:public	signature:()
+~Gamestate	gamestate.cpp	/^Gamestate::~Gamestate()$/;"	f	class:Gamestate	signature:()
+~Gamestate	gamestate.h	/^    virtual ~Gamestate();$/;"	p	class:Gamestate	access:public	signature:()
+~GamestateGame	gamestategame.cpp	/^GamestateGame::~GamestateGame()$/;"	f	class:GamestateGame	signature:()
+~GamestateGame	gamestategame.h	/^    virtual ~GamestateGame();$/;"	p	class:GamestateGame	access:public	signature:()
+~GamestateMenu	gamestatemenu.cpp	/^GamestateMenu::~GamestateMenu ()$/;"	f	class:GamestateMenu	signature:()
+~GamestateMenu	gamestatemenu.h	/^    virtual ~GamestateMenu ();$/;"	p	class:GamestateMenu	access:public	signature:()
