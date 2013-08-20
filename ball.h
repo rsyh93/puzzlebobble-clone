@@ -23,7 +23,7 @@ public:
     Uint32 color;
     SDL_Rect position;
 
-    static int count = 0;
+    static int count;
 
 private:
 };

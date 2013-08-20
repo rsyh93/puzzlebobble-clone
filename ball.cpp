@@ -1,5 +1,7 @@
 #include "ball.h"
 
+int Ball::count = 0;
+
 Ball::Ball(double x, double y, double angle, Uint32 color) :
     x(x), 
     y(y),
@@ -16,6 +18,7 @@ Ball::~Ball()
 
 void Ball::update()
 {
+    // Debug
     std::cout << angle << ": (" << position.x << "," << position.y << ")" << std::endl;
 
     double velocity = 2;
@@ -27,8 +30,6 @@ void Ball::update()
         angle = 180 - angle;
 
     y = y - velocity * sin(angle * PI / 180.0);
-    if (y < 0) 
-        kill = true;
 
     position.x = (int) x;
     position.y = (int) y;

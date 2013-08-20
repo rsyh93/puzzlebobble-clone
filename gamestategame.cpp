@@ -13,6 +13,11 @@ void Arrow::adjustedPosition(int *dst_x, int *dst_y)
 GamestateGame::GamestateGame() :
     active_ball(NULL)
 {
+    for (int i = 0; i < top_row_size; i++)
+    {
+        top_row[i] = NULL;
+    }
+
     old_keystate = NULL;
     cur_keystate = NULL;
 }
@@ -59,7 +64,7 @@ void GamestateGame::events()
 
     updateArrow();
 
-    if (keyPress(SDLK_RETURN))
+    if (keyPress(SDLK_RETURN) && active_ball == NULL)
         active_ball = new Ball(arrow.center_x - ball_img->w / 2,
                                arrow.center_y - ball_img->h / 2,
                                arrow.angle,
@@ -86,8 +91,16 @@ void GamestateGame::draw()
     SDL_BlitSurface(arrow.image, NULL, screen, &arrow_dest);
     for (int i = 0; i < top_row_size; i++)
     {
-        SDL_SetColorKey(ball_img, SDL_SRCCOLORKEY, top_row[i]->color);
-        SDL_BlitSurface(ball_img, NULL, screen, &top_row[i]->position);
+        if (top_row[i] != NULL)
+        {
+            SDL_SetColorKey(ball_img, SDL_SRCCOLORKEY, top_row[i]->color);
+            SDL_BlitSurface(ball_img, NULL, screen, &top_row[i]->position);
+        }
+    }
+    if (active_ball != NULL)
+    {
+        SDL_SetColorKey(ball_img, SDL_SRCCOLORKEY, active_ball->color);
+        SDL_BlitSurface(ball_img, NULL, screen, &active_ball->position);
     }
 }
 
@@ -95,7 +108,8 @@ void GamestateGame::close()
 {
     for (int i = 0; i < top_row_size; i++)
     {
-        delete top_row[i];
+        if (top_row[i] != NULL)
+            delete top_row[i];
     }
 
     delete active_ball;
@@ -130,13 +144,42 @@ void GamestateGame::updateBalls()
 {
     for (int i = 0; i < top_row_size; i++)
     {
-        top_row[i]->update();
-
-        if (top_row[i]->kill)
+        if (top_row[i] != NULL)
         {
-            delete top_row[i];
-            top_row[i] = NULL;
+            if (top_row[i]->kill)
+            {
+                delete top_row[i];
+                top_row[i] = NULL;
+            }
         }
     }
+
+    if (active_ball != NULL)
+    {
+        active_ball->update();
+        if (active_ball->y <= 0)
+        {
+            int position = (int)(active_ball->x/48);
+
+            if (top_row[position] == NULL)
+            {
+                // Debug
+                std::cout << "Placing x=" << active_ball->x << " to position " << position <<std::endl;
+            
+                active_ball->x = position * 48;
+                active_ball->y = 0;
+                active_ball->position.x = position * 48;
+                active_ball->position.y = 0;
+                top_row[position] = active_ball;
+            }
+            else
+            {
+                delete active_ball;
+            }
+
+            active_ball = NULL;
+        }
+    }
+
 }
 

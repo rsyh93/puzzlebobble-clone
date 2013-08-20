@@ -91,7 +91,7 @@ int main(int argc, char** argv)
         state->draw();
         SDL_Flip(screen);
         diff = SDL_GetTicks() - start;
-        if (diff < fps)
+        if (diff/1000 < fps)
             SDL_Delay(diff);
     }
     state->close();
