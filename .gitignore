@@ -12,5 +12,7 @@
 *.la
 *.a
 
-# Compiled Binary
+# Compiled Binaries
 puzzlebobble-clone
+puzzlebobble-clone_d
+
