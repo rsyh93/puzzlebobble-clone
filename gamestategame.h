@@ -20,8 +20,6 @@ extern SDL_Surface *arrow_img;
 extern SDL_Surface *ball_img;
 extern bool running;
 
-static const int top_row_size = 10;
-
 struct Arrow
 {
     int center_x, center_y;
@@ -29,11 +27,6 @@ struct Arrow
     SDL_Surface *image;
     void adjustedPosition(int *dst_x, int *dst_y);
 };
-
-//struct Ball
-//{
-//    SDL_Rect position;
-//}
 
 class GamestateGame : public Gamestate
 {
@@ -50,8 +43,8 @@ private:
     bool keyPress(SDLKey key);
     void updateArrow();
     void updateBalls();
-    Ball *top_row[top_row_size];
     Ball *active_ball;
+    std::vector<Ball *> balls;
     std::vector<SDL_Surface *> arrow_angles;
     SDL_Rect playarea;
     Arrow arrow;

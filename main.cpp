@@ -80,7 +80,7 @@ int main(int argc, char** argv)
 
     Uint32 start;
     Uint32 diff;
-    double fps = 1.0/60.0;
+    double ms_per_frame = 1000/100.0;
 
     running = true;
     state->init();
@@ -91,8 +91,8 @@ int main(int argc, char** argv)
         state->draw();
         SDL_Flip(screen);
         diff = SDL_GetTicks() - start;
-        if (diff/1000 < fps)
-            SDL_Delay(diff);
+        if (diff < ms_per_frame)
+            SDL_Delay(ms_per_frame - diff);
     }
     state->close();
 

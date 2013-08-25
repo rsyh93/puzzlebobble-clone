@@ -13,11 +13,6 @@ void Arrow::adjustedPosition(int *dst_x, int *dst_y)
 GamestateGame::GamestateGame() :
     active_ball(NULL)
 {
-    for (int i = 0; i < top_row_size; i++)
-    {
-        top_row[i] = NULL;
-    }
-
     old_keystate = NULL;
     cur_keystate = NULL;
 }
@@ -89,16 +84,20 @@ void GamestateGame::draw()
     arrow_dest.x = x;
     arrow_dest.y = y;
     SDL_BlitSurface(arrow.image, NULL, screen, &arrow_dest);
-    for (int i = 0; i < top_row_size; i++)
+    for (std::vector<Ball *>::iterator it = balls.begin();
+         it != balls.end();
+         ++it)
     {
-        if (top_row[i] != NULL)
+        if ((*it) != NULL)
         {
-            SDL_SetColorKey(ball_img, SDL_SRCCOLORKEY, top_row[i]->color);
-            SDL_BlitSurface(ball_img, NULL, screen, &top_row[i]->position);
+            (*it)->update();
+            SDL_SetColorKey(ball_img, SDL_SRCCOLORKEY, (*it)->color);
+            SDL_BlitSurface(ball_img, NULL, screen, &(*it)->position);
         }
     }
     if (active_ball != NULL)
     {
+        active_ball->update();
         SDL_SetColorKey(ball_img, SDL_SRCCOLORKEY, active_ball->color);
         SDL_BlitSurface(ball_img, NULL, screen, &active_ball->position);
     }
@@ -106,11 +105,13 @@ void GamestateGame::draw()
 
 void GamestateGame::close()
 {
-    for (int i = 0; i < top_row_size; i++)
+    for (std::vector<Ball *>::iterator it = balls.begin();
+         it != balls.end();
+         ++it)
     {
-        if (top_row[i] != NULL)
-            delete top_row[i];
+        delete (*it);
     }
+    balls.clear();
 
     delete active_ball;
 
@@ -142,41 +143,77 @@ void GamestateGame::updateArrow()
 
 void GamestateGame::updateBalls()
 {
-    for (int i = 0; i < top_row_size; i++)
+    for (std::vector<Ball *>::iterator it = balls.begin();
+         it != balls.end();
+         ++it)
     {
-        if (top_row[i] != NULL)
+        if ((*it)->kill)
         {
-            if (top_row[i]->kill)
-            {
-                delete top_row[i];
-                top_row[i] = NULL;
-            }
+            delete (*it);
+            balls.erase(it);
         }
     }
 
     if (active_ball != NULL)
     {
-        active_ball->update();
+        active_ball->move();
+
+        for (std::vector<Ball *>::iterator it = balls.begin();
+             it != balls.end();
+             ++it)
+        {
+            Direction collision = active_ball->collide(*(*it));
+            if (collision != NONE)
+            {
+                switch(collision)
+                {
+                case TOPLEFT:
+                    active_ball->x = (*it)->x - BALL_WIDTH / 2;
+                    active_ball->y = (*it)->y - BALL_HEIGHT;
+                    active_ball->top_left = (*it);
+                    (*it)->bot_right = active_ball;
+                    break;
+                case TOPRIGHT:
+                    active_ball->x = (*it)->x + BALL_WIDTH / 2;
+                    active_ball->y = (*it)->y - BALL_HEIGHT;
+                    active_ball->top_right = (*it);
+                    (*it)->bot_left = active_ball;
+                    break;
+                case LEFT:
+                    active_ball->x = (*it)->x - BALL_WIDTH;
+                    active_ball->y = (*it)->y;
+                    active_ball->left = (*it);
+                    (*it)->right = active_ball;
+                    break;
+                case RIGHT:
+                    active_ball->x = (*it)->x + BALL_WIDTH;
+                    active_ball->y = (*it)->y;
+                    active_ball->right = (*it);
+                    (*it)->left = active_ball;
+                    break;
+                case BOTLEFT:
+                    active_ball->x = (*it)->x - BALL_WIDTH / 2;
+                    active_ball->y = (*it)->y + BALL_HEIGHT;
+                    active_ball->bot_left = (*it);
+                    (*it)->top_right = active_ball;
+                    break;
+                case BOTRIGHT:
+                    active_ball->x = (*it)->x + BALL_WIDTH / 2;
+                    active_ball->y = (*it)->y + BALL_HEIGHT;
+                    active_ball->bot_right = (*it);
+                    (*it)->top_left = active_ball;
+                    break;
+                }
+                active_ball->assign(**it, collision);
+                balls.push_back(active_ball);
+                active_ball = NULL;
+                return;
+            }
+        }
+
         if (active_ball->y <= 0)
         {
-            int position = (int)(active_ball->x/48);
-
-            if (top_row[position] == NULL)
-            {
-                // Debug
-                std::cout << "Placing x=" << active_ball->x << " to position " << position <<std::endl;
-            
-                active_ball->x = position * 48;
-                active_ball->y = 0;
-                active_ball->position.x = position * 48;
-                active_ball->position.y = 0;
-                top_row[position] = active_ball;
-            }
-            else
-            {
-                delete active_ball;
-            }
-
+            balls.push_back(active_ball);
             active_ball = NULL;
         }
     }
