@@ -213,6 +213,10 @@ void GamestateGame::updateBalls()
 
         if (active_ball->y <= 0)
         {
+            int cx = active_ball->x + BALL_WIDTH / 2;
+            int pos = cx / 48;
+            active_ball->x = pos * 48;
+            
             balls.push_back(active_ball);
             active_ball = NULL;
         }
